@@ -8,65 +8,65 @@ import javax.swing.event.ChangeListener;
 
 public class Colores extends JPanel implements ChangeListener {
 
-    private JSlider redSlider;
-    private JSlider greenSlider;
-    private JSlider blueSlider;
+    JSlider redSlider;
+    JSlider greenSlider;
+    JSlider blueSlider;
 
     public Colores() {
-        setLayout(new BorderLayout());
+        setLayout(null);
 
         redSlider = new JSlider(0, 255, 0);
-        greenSlider = new JSlider(0, 255, 0);
-        blueSlider = new JSlider(0, 255, 0);
-        
+        redSlider.setBounds(300, 600, 150, 20);
         redSlider.addChangeListener(this);
+        add(redSlider);
+
+        greenSlider = new JSlider(0, 255, 0);
+        greenSlider.setBounds(300, 650, 150, 20);
         greenSlider.addChangeListener(this);
+        add(greenSlider);
+
+        blueSlider = new JSlider(0, 255, 0);
+        blueSlider.setBounds(300, 700, 150, 20);
         blueSlider.addChangeListener(this);
-
-        JBox box = Box.createHorizontalBox();
-        box.add(redSlider);
-        box.add(greenSlider);
-        box.add(blueSlider);
-
-        add(box, BorderLayout.SOUTH);
+        add(blueSlider);
 
         JFrame frame = new JFrame("Color Picker");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(this);
-        frame.setSize(250, 220);
+        frame.setSize(500, 800);
         frame.setVisible(true);
-       }
+    }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
         // blanco
         g.setColor(Color.WHITE);
-        g.fillRect(20, 140, 40, 40);
+        g.fillRect(20, 600, 40, 40);
 
         // negro
         g.setColor(Color.BLACK);
-        g.fillRect(80, 140, 40, 40);
+        g.fillRect(80, 600, 40, 40);
 
         // azul
         g.setColor(Color.BLUE);
-        g.fillRect(140, 140, 40, 40);
+        g.fillRect(140, 600, 40, 40);
 
         // rojo
         g.setColor(Color.RED);
-        g.fillRect(20, 190, 40, 40);
+        g.fillRect(20, 650, 40, 40);
 
         // verde
         g.setColor(Color.GREEN);
-        g.fillRect(80, 190, 40, 40);
+        g.fillRect(80, 650, 40, 40);
 
         // amarillo
         g.setColor(Color.YELLOW);
-        g.fillRect(140, 190, 40, 40);
+        g.fillRect(140, 650, 40, 40);
 
         // cuadro de color actual
         g.setColor(new Color(redSlider.getValue(), greenSlider.getValue(), blueSlider.getValue()));
-        g.fillRect(200, 140, 30, 90);
+        g.fillRect(200, 600, 30, 90);
     }
 
     public void stateChanged(ChangeEvent e) {
@@ -74,7 +74,7 @@ public class Colores extends JPanel implements ChangeListener {
     }
 
     public static void main(String[] args) {
-        new ColorPickerApp();
+        new Colores();
     }
 
 }
