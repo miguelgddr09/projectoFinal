@@ -6,13 +6,13 @@ import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class ColorPickerApp extends JPanel implements ChangeListener {
+public class Colores extends JPanel implements ChangeListener {
 
     private JSlider redSlider;
     private JSlider greenSlider;
     private JSlider blueSlider;
 
-    public ColorPickerApp() {
+    public Colores() {
         setLayout(null);
 
         redSlider = new JSlider(0, 255, 0);
