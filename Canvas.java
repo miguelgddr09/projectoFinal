@@ -18,7 +18,12 @@ public class Canvas extends JPanel  {
 		gfx=imagen.createGraphics();
 	}
 	
-	public void setGridSize(int size, Color color) {
+	private void paintPixel(int x, int y, Color color) {
+		gfx.setColor(color);
+		gfx.fillRect(x * pixelSize, y * pixelSize, pixelSize, pixelSize);
+	}
+	
+	private void setGridSize(int size, Color color) {
 		for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {                
                 gfx.setColor(color);
