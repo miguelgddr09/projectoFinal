@@ -5,12 +5,27 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 
 public class myWindow extends JFrame {
-
+    
+    Canvas canvas;
+    JButton abrir;
+    Jbutton guardar;
+    JLabel rLbl;
+    JLabel gLbl;
+    JLabel bLbl;
+    
     public myWindow() {
         setTitle("My Window");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 700);
-
+        
+        //objetos: texto valores, botones guardar abrir, canvas
+        guardar = new JButton("Guardar");
+		abrir = new JButton("Abrir");
+		canvas = new Canvas();
+		rLbl = new JLabel("R: ");
+		gLbl = new JLabel("G: ");
+		bLbl = new JLabel("B: ");
+        
         // Panel de colores
         Colores coloresPanel = new Colores();
 
