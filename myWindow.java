@@ -13,18 +13,17 @@ public class myWindow extends JFrame {
     JLabel gLbl;
     JLabel bLbl;
     
-    public myWindow() {
+	int height, width;
+	
+	
+	
+    public myWindow(int height, int width) {
         setTitle("My Window");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 700);
         
-        //objetos: texto valores, botones guardar abrir, canvas
-        guardar = new JButton("Guardar");
-		abrir = new JButton("Abrir");
-		canvas = new Canvas();
-		rLbl = new JLabel("R: ");
-		gLbl = new JLabel("G: ");
-		bLbl = new JLabel("B: ");
+        this.height = height;
+	this.width = width;
         
         // Panel de colores
         Colores coloresPanel = new Colores();
@@ -65,7 +64,9 @@ public class myWindow extends JFrame {
             }
         };
         predefinedColorsPanel.setPreferredSize(new Dimension(260, 250));
-
+	
+	    
+	
         // Agrega los paneles al frame principal
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.add(coloresPanel, BorderLayout.WEST);
@@ -74,6 +75,20 @@ public class myWindow extends JFrame {
 
         setVisible(true);
     }
+	
+   public void setup(){
+	
+	   //objetos: texto valores, botones guardar abrir, canvas
+        guardar = new JButton("Guardar");
+	abrir = new JButton("Abrir");
+	canvas = new Canvas();
+	rLbl = new JLabel("R: ");
+	gLbl = new JLabel("G: ");
+	bLbl = new JLabel("B: ");
+	   
+	   //tamano canvas
+	canvas.setBounds();
+   }
 
     public static void main(String[] args) {
         new myWindow();
