@@ -13,29 +13,29 @@ public class Colores extends JPanel implements ChangeListener {
     private JSlider blueSlider;
 
     public Colores() {
-        setLayout(null);
+        setLayout(new BorderLayout());
 
         redSlider = new JSlider(0, 255, 0);
-        redSlider.setBounds(20, 20, 200, 20);
-        redSlider.addChangeListener(this);
-        add(redSlider);
-
         greenSlider = new JSlider(0, 255, 0);
-        greenSlider.setBounds(20, 60, 200, 20);
-        greenSlider.addChangeListener(this);
-        add(greenSlider);
-
         blueSlider = new JSlider(0, 255, 0);
-        blueSlider.setBounds(20, 100, 200, 20);
+        
+        redSlider.addChangeListener(this);
+        greenSlider.addChangeListener(this);
         blueSlider.addChangeListener(this);
-        add(blueSlider);
+
+        JBox box = Box.createHorizontalBox();
+        box.add(redSlider);
+        box.add(greenSlider);
+        box.add(blueSlider);
+
+        add(box, BorderLayout.SOUTH);
 
         JFrame frame = new JFrame("Color Picker");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(this);
         frame.setSize(250, 220);
         frame.setVisible(true);
-    }
+       }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
