@@ -1,6 +1,9 @@
+
 import java.awt.Color;
 import java.awt.Graphics;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
@@ -11,6 +14,10 @@ public class Colores extends JPanel implements ChangeListener {
     JSlider redSlider;
     JSlider greenSlider;
     JSlider blueSlider;
+
+    JLabel redLabel;
+    JLabel greenLabel;
+    JLabel blueLabel;
 
     public Colores() {
         setLayout(null);
@@ -29,6 +36,18 @@ public class Colores extends JPanel implements ChangeListener {
         blueSlider.setBounds(300, 700, 150, 20);
         blueSlider.addChangeListener(this);
         add(blueSlider);
+
+        redLabel = new JLabel("0");
+        redLabel.setBounds(460, 600, 20, 20);
+        add(redLabel);
+
+        greenLabel = new JLabel("0");
+        greenLabel.setBounds(460, 650, 20, 20);
+        add(greenLabel);
+
+        blueLabel = new JLabel("0");
+        blueLabel.setBounds(460, 700, 20, 20);
+        add(blueLabel);
 
         JFrame frame = new JFrame("Color Picker");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,6 +89,11 @@ public class Colores extends JPanel implements ChangeListener {
     }
 
     public void stateChanged(ChangeEvent e) {
+        // actualiza las etiquetas con los valores actuales de los sliders
+        redLabel.setText(Integer.toString(redSlider.getValue()));
+        greenLabel.setText(Integer.toString(greenSlider.getValue()));
+        blueLabel.setText(Integer.toString(blueSlider.getValue()));
+
         repaint();
     }
 
