@@ -37,15 +37,15 @@ public class Colores extends JPanel implements ChangeListener {
         add(blueSlider);
 
         redLabel = new JLabel("0");
-        redLabel.setBounds(460, 600, 20, 20);
+        redLabel.setBounds(460, 600, 30, 30);
         add(redLabel);
 
         greenLabel = new JLabel("0");
-        greenLabel.setBounds(460, 650, 20, 20);
+        greenLabel.setBounds(460, 650, 30, 30);
         add(greenLabel);
 
         blueLabel = new JLabel("0");
-        blueLabel.setBounds(460, 700, 20, 20);
+        blueLabel.setBounds(460, 700, 30, 30);
         add(blueLabel);
 
         JFrame frame = new JFrame("Color Picker");
