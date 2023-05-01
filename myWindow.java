@@ -1,92 +1,127 @@
-package proyectoFinal;
-import javax.swing.*;
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
 
-public class myWindow extends JFrame {
-    
-    Canvas canvas;
-    JButton abrir;
-    Jbutton guardar;
-    
-    
-	int height, width;
-	
-	
-	
-    public myWindow(int height, int width) {
-        setTitle("My Window");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500, 700);
-        
-        this.height = height;
-	this.width = width;
-        
-        // Panel de colores
-        Colores coloresPanel = new Colores();
+public class Colores extends JPanel implements ChangeListener {
 
-        // Panel de colores predefinidos
-        JPanel predefinedColorsPanel = new JPanel() {
-            @Override
-            public void paintComponent(Graphics g) {
-                super.paintComponent(g);
+    JSlider redSlider;
+    JSlider greenSlider;
+    JSlider blueSlider;
 
-                // blanco
-                g.setColor(Color.WHITE);
-                g.fillRect(20, 140, 40, 40);
+    JLabel redLabel;
+    JLabel greenLabel;
+    JLabel blueLabel;
 
-                // negro
-                g.setColor(Color.BLACK);
-                g.fillRect(80, 140, 40, 40);
+    public Colores() {
+        setLayout(null);
 
-                // azul
-                g.setColor(Color.BLUE);
-                g.fillRect(140, 140, 40, 40);
+        redSlider = new JSlider(0, 255, 0);
+        redSlider.setBounds(300, 600, 150, 20);
+        redSlider.addChangeListener(this);
+        add(redSlider);
 
-                // rojo
-                g.setColor(Color.RED);
-                g.fillRect(20, 190, 40, 40);
+        greenSlider = new JSlider(0, 255, 0);
+        greenSlider.setBounds(300, 650, 150, 20);
+        greenSlider.addChangeListener(this);
+        add(greenSlider);
 
-                // verde
-                g.setColor(Color.GREEN);
-                g.fillRect(80, 190, 40, 40);
+        blueSlider = new JSlider(0, 255, 0);
+        blueSlider.setBounds(300, 700, 150, 20);
+        blueSlider.addChangeListener(this);
+        add(blueSlider);
 
-                // amarillo
-                g.setColor(Color.YELLOW);
-                g.fillRect(140, 190, 40, 40);
+        redLabel = new JLabel("0");
+        redLabel.setBounds(460, 600, 20, 20);
+        add(redLabel);
 
-                // cuadro de color actual
-                g.setColor(new Color(coloresPanel.redSlider.getValue(), coloresPanel.greenSlider.getValue(), coloresPanel.blueSlider.getValue()));
-                g.fillRect(200, 140, 30, 90);
-            }
-        };
-        predefinedColorsPanel.setPreferredSize(new Dimension(260, 250));
-	
-	    
-	
-        // Agrega los paneles al frame principal
-        JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.add(coloresPanel, BorderLayout.WEST);
-        mainPanel.add(predefinedColorsPanel, BorderLayout.CENTER);
-        setContentPane(mainPanel);
+        greenLabel = new JLabel("0");
+        greenLabel.setBounds(460, 650, 20, 20);
+        add(greenLabel);
 
-        setVisible(true);
+        blueLabel = new JLabel("0");
+        blueLabel.setBounds(460, 700, 20, 20);
+        add(blueLabel);
+
+        JFrame frame = new JFrame("Color Picker");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(this);
+        frame.setSize(500, 800);
+        frame.setVisible(true);
     }
-	
-   public void setup(){
-	
-	   //objetos: texto valores, botones guardar abrir, canvas
-        guardar = new JButton("Guardar");
-	abrir = new JButton("Abrir");
-	canvas = new Canvas();
-	
-	   
-	   //tamano canvas
-	canvas.setBounds();
-   }
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        // blanco
+        g.setColor(Color.WHITE);
+        g.fillRect(20, 600, 40, 40);
+
+        // negro
+        g.setColor(Color.BLACK);
+        g.fillRect(80, 600, 40, 40);
+
+        // azul
+        g.setColor(Color.BLUE);
+        g.fillRect(140, 600, 40, 40);
+
+        // rojo
+        g.setColor(Color.RED);
+        g.fillRect(20, 650, 40, 40);
+
+        // verde
+        g.setColor(Color.GREEN);
+        g.fillRect(80, 650, 40, 40);
+
+        // amarillo
+        g.setColor(Color.YELLOW);
+        g.fillRect(140, 650, 40, 40);
+
+        // cuadro de color actual
+        g.setColor(new Color(redSlider.getValue(), greenSlider.getValue(), blueSlider.getValue()));
+        g.fillRect(200, 600, 30, 90);
+    }
+
+    public void stateChanged(ChangeEvent e) {
+        // actualiza las etiquetas con los valores actuales de los sliders
+        redLabel.setText(Integer.toString(redSlider.getValue()));
+        greenLabel.setText(Integer.toString(greenSlider.getValue()));
+        blueLabel.setText(Integer.toString(blueSlider.getValue()));
+
+        repaint();
+    }
+    
+    public void funcionesColores() {
+        redSlider.setBackground(Color.RED);
+        greenSlider.setBackground(Color.GREEN);
+        blueSlider.setBackground(Color.BLUE);
+        
+        redSlider.setPaintTrack(true);
+        redSlider.setPaintTicks(true);
+        redSlider.setPaintLabels(true);
+        
+        greenSlider.setPaintTrack(true);
+        greenSlider.setPaintTicks(true);
+        greenSlider.setPaintLabels(true);
+        
+        blueSlider.setPaintTrack(true);
+        blueSlider.setPaintTicks(true);
+        blueSlider.setPaintLabels(true);
+        
+        redSlider.addChangeListener(this);
+        greenSlider.addChangeListener(this);
+        blueSlider.addChangeListener(this);
+        
+        setBackground(Color.WHITE);
+    }
 
     public static void main(String[] args) {
-        new myWindow();
+        Colores colores = new Colores();
+        colores.funcionesColores();
     }
 }
