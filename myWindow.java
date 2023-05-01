@@ -9,9 +9,7 @@ public class myWindow extends JFrame {
     Canvas canvas;
     JButton abrir;
     Jbutton guardar;
-    JLabel rLbl;
-    JLabel gLbl;
-    JLabel bLbl;
+    
     
 	int height, width;
 	
@@ -82,9 +80,7 @@ public class myWindow extends JFrame {
         guardar = new JButton("Guardar");
 	abrir = new JButton("Abrir");
 	canvas = new Canvas();
-	rLbl = new JLabel("R: ");
-	gLbl = new JLabel("G: ");
-	bLbl = new JLabel("B: ");
+	
 	   
 	   //tamano canvas
 	canvas.setBounds();
