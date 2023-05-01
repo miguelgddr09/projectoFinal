@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -96,9 +95,33 @@ public class Colores extends JPanel implements ChangeListener {
 
         repaint();
     }
-
-    public static void main(String[] args) {
-        new Colores();
+    
+    public void funcionesColores() {
+        redSlider.setBackground(Color.RED);
+        greenSlider.setBackground(Color.GREEN);
+        blueSlider.setBackground(Color.BLUE);
+        
+        redSlider.setPaintTrack(true);
+        redSlider.setPaintTicks(true);
+        redSlider.setPaintLabels(true);
+        
+        greenSlider.setPaintTrack(true);
+        greenSlider.setPaintTicks(true);
+        greenSlider.setPaintLabels(true);
+        
+        blueSlider.setPaintTrack(true);
+        blueSlider.setPaintTicks(true);
+        blueSlider.setPaintLabels(true);
+        
+        redSlider.addChangeListener(this);
+        greenSlider.addChangeListener(this);
+        blueSlider.addChangeListener(this);
+        
+        setBackground(Color.WHITE);
     }
 
+    public static void main(String[] args) {
+        Colores colores = new Colores();
+        colores.funcionesColores();
+    }
 }
