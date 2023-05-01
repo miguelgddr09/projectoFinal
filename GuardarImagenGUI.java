@@ -17,6 +17,7 @@ public class GuardarImagenGUI extends JFrame implements ActionListener {
     private BufferedImage imagen;
     private JFileChooser selectorArchivo;
     private JButton guardarJPG, guardarGIF, guardarPNG;
+    private String rutaActual = System.getProperty("user.dir");
 
     public GuardarImagenGUI() {
         super("Guardar imagen");
@@ -41,7 +42,7 @@ public class GuardarImagenGUI extends JFrame implements ActionListener {
         add(panelBotones, BorderLayout.SOUTH);
 
         // Crear un selector de archivo
-        selectorArchivo = new JFileChooser();
+        selectorArchivo = new JFileChooser(rutaActual);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -66,7 +67,11 @@ public class GuardarImagenGUI extends JFrame implements ActionListener {
                         formato = "png";
                     }
 
-                    ImageIO.write(imagen, formato, archivo);
+                    // Crear la ruta completa del archivo de salida
+                    String nombreArchivo = archivo.getName();
+                    String rutaCompleta = rutaActual + File.separator + nombreArchivo;
+
+                    ImageIO.write(imagen, formato, new File(rutaCompleta));
 
                 } catch (IOException ex) {
                     System.out.println("Error al guardar la imagen: " + ex.getMessage());
