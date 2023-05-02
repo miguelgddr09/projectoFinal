@@ -1,5 +1,0 @@
-# projectoFinal
-
-lokura
-hola
-adios
