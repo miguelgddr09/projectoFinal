@@ -17,6 +17,7 @@ public class myWindow extends JFrame {
 
         Colores colores = new Colores();
         colores.funcionesColores();
+        Canva canva = new Canva();
 }
 
     public static void main(String[] args) {
