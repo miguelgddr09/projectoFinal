@@ -22,10 +22,10 @@ public class Canvas extends JPanel {
 
    public void paint(Graphics g) {
       super.paint(g);
-      int rows = 10;
-      int cols = 10;
-      int width = getWidth();
-      int height = getHeight();
+      int rows = 40;
+      int cols = 40;
+      int width = 20;
+      int height = 20;
       int cellWidth = width / cols;
       int cellHeight = height / rows;
 
