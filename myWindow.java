@@ -58,6 +58,20 @@ public class myWindow extends JFrame {
 
         setVisible(true);
     }
+    
+    public void mouseClicked(MouseEvent e) {
+		
+		x = e.getX(); //get the x and y coordinates of
+		y = e.getY();
+	
+		canvas.getGraphic().setColor(Color.____); //declarar color que tenga el usuario en ese momento
+		canvas.getGraphic().fillRect(x-10, y-10, 20, 20);
+		canvas.getGraphic().setColor(Color.black);
+		canvas.getGraphic().drawRect(x-10, y-10, 20, 20);
+		//canvas.setImage(img);
+		
+		lbl.setText(x+" "+y);
+	}
 
     public static void main(String[] args) {
         new myWindow();
