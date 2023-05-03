@@ -14,12 +14,29 @@ public class Canvas extends JPanel {
 	private final int COLUMNS = 50;
 	private Color[][] casillas = new Color[ROWS][COLUMNS];
 	
-	public Canvas() {
-		setBackground(Color.BLACK);
-		imagen = new BufferedImage(PIXEL_SIZE * COLUMNS, PIXEL_SIZE * ROWS, BufferedImage.TYPE_INT_RGB);
-		gfx = imagen.createGraphics();
-		resetCanvas();
-	}
+	   public Canvas() {
+      setSize(500, 500);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      setVisible(true);
+   }
+
+   public void paint(Graphics g) {
+      super.paint(g);
+      int rows = 10;
+      int cols = 10;
+      int width = getWidth();
+      int height = getHeight();
+      int cellWidth = width / cols;
+      int cellHeight = height / rows;
+
+      for (int row = 0; row < rows; row++) {
+         for (int col = 0; col < cols; col++) {
+            int x = col * cellWidth;
+            int y = row * cellHeight;
+            g.drawRect(x, y, cellWidth, cellHeight);
+         }
+      }
+   }
 	
 	private void resetCanvas() {
 		for (int i = 0; i < ROWS; i++) {
