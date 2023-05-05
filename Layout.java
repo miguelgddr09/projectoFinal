@@ -1,14 +1,13 @@
-package layoutProyect;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Layout {
 	public static void main(String[] args) {
-		/*JFrame frame = new JFrame();
+		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800,500);
 		frame.setLayout(new BorderLayout());
@@ -28,7 +27,8 @@ public class Layout {
 		
 		frame.add(panel1,BorderLayout.NORTH);
 		frame.add(panel2,BorderLayout.CENTER);
-		frame.add(panel3,BorderLayout.SOUTH);*/
+		frame.add(panel3,BorderLayout.SOUTH);
 		
 	}
 }
+
