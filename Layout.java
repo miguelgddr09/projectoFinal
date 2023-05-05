@@ -22,6 +22,10 @@ public class Layout {
 		panel2.setBackground(Color.green);
 		panel3.setBackground(Color.blue);
 		
+		panel1.setPreferredSize(new Dimension(100,100));
+		panel2.setPreferredSize(new Dimension(100,100));
+		panel3.setPreferredSize(new Dimension(100, 100));
+		
 		frame.add(panel1,BorderLayout.NORTH);
 		frame.add(panel2,BorderLayout.CENTER);
 		frame.add(panel3,BorderLayout.SOUTH);*/
