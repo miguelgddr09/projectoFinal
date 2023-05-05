@@ -11,6 +11,7 @@ public class Layout {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800,500);
 		frame.setLayout(new BorderLayout());
+		frame.setResizable(false);
 		frame.setVisible(true);
 		
 		JPanel panel1 = new JPanel();
